@@ -106,14 +106,17 @@ function transformData(data) {
       name: data.name,
       age:  data.age,
       status: data.status,
-      adresse: {
-        streetAddress: data.address1,
-        city: data.addressCity,
-        state: data.addressState,
-        country: data.addressCountry,
-      },
   };
   
+  let completeAdresse = {
+    streetAddress: data.address1,
+    city: data.addressCity,
+    state: data.addressState,
+    country: data.addressCountry,
+  }
+
+  organisedData.adresse = completeAdresse
+
   organisedData.superpowers = transformPowersToArray(data.superpower1, data.superpower2)
   
   let mother = {
