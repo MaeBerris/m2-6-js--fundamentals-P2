@@ -15,6 +15,23 @@ let mostPopularFood = [
   undefined,
 ];
 
+function topTen (){
+  mostPopularFood.unshift('bean burritos')
+  mostPopularFood.pop()
+  mostPopularFood.push('buffalo-flavored cauliflower')
+  let number = 0
+  let sentence = ''
+  let newArray = []
+  mostPopularFood.forEach(function (item){
+    number += 1
+    sentence = `#${number} ` + item
+    newArray.push(sentence)
+  });
+  console.log(newArray.join('\n'))
+}
+
+topTen()
+
 // The array holds a top-ten list of foods as ranked by Grubhub.
 // #1 and #10 are missing
 //       #1 is 'bean burritos'

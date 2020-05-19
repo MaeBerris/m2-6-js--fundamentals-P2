@@ -2,6 +2,13 @@
 // -------------------
 const lateComers = ['Felicia', 'Charles', 'Terry'];
 const earlyBirds = ['Ellen', 'Jerry', 'Jasmine'];
+const allAttendees = earlyBirds.concat(lateComers)
+
+allAttendees.forEach(function(name, id){
+    name = `#${id+1} ` + name
+    console.log(name)
+})
+
 
 // You have two arrays above of people who arrived late to your party and
 // people who arrived early.

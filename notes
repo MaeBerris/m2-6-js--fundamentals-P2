@@ -1,0 +1,107 @@
+SORT:
+
+The sort method doesn't work like a human. It works by unicode. 
+ex: arr = ['Zachary','beth']
+arr.sort() = ['Zachary','beth'] because uppercas Z has a lower unicode than b so it sorts not alphabeticaly.
+
+Same with numbers. It only looks at first number.
+
+it can use a function
+
+numbers.sort(function(a,b){
+    if (a > b){
+        return 1
+    } else {
+        return -1;
+    }
+})
+
+names.sort(function (a, b){
+    let lowerCaseA = a.toLowerCase();
+    let lowerCaseB = b.toLowerCase();
+
+    if (lowerCaseA > lowerCaseB) {
+        return 1;
+    }else {
+        return -1
+    }
+})
+
+OBJECT METHODS :
+
+const friendsAge = {'Rahul': 34, 'Cindy': 33}
+
+Object.keys(friendsAge) will give us all the keys, in this case names
+Object.values(friendsAge) will give us all of the values in an array
+Object.entries(friendsAge) will give us an array of arrays [['Rahul', 34]['Cindy', 33]]
+
+DECONSTRUCTING:
+
+PROBLEM 1:
+
+let winningNumbers = [4, 17, 38, 9];
+let firstPlace = winningNumbers[0];
+let secondPlace = winningNumbers[1];
+let thirdPlace = winningNumbers[2];
+console.log(
+  `The top three winners are: ${firstPlace}, ${secondPlace}, ${thirdPlace}.`
+)
+
+SOLUTION 1: 
+
+let winningNumbers = [4, 17, 38, 9];
+let [firstPlace,secondPlace,thirdPlace] = winningNumbers
+console.log(
+  `The top three winners are: ${firstPlace}, ${secondPlace}, ${thirdPlace}.`
+)
+
+PROBLEM 2: 
+
+let weatherData = {
+  city: 'Toronto',
+  weather: 'sunny',
+  temperature: 23,
+}
+function printWeather(data) {
+  console.log(
+    `It is ${data.weather} in ${data.city}, with a high of ${temperature}.`
+  )
+}
+printWeather(weatherData);
+
+SOLUTION 2:
+
+let weatherData = {
+  city: 'Toronto',
+  weather: 'sunny',
+  temperature: 23,
+}
+
+function printWeather(data) {
+  let {city, weather, temperature} = data;
+  console.log(
+    `It is ${weather} in ${city}, with a high of ${temperature}.`
+  )
+}
+printWeather(weatherData);
+
+
+PROBLEM 3:
+
+function handleChange(event) {
+  let value = event.target.value;
+  console.log(value);
+}
+
+let input = document.querySelector('input');
+input.addEventListener('change', handleChange)
+
+SOLUTION 3: 
+
+function handleChange(event) {
+  let {value} = event.target;
+  console.log(value);
+}
+
+let input = document.querySelector('input');
+input.addEventListener('change', handleChange)

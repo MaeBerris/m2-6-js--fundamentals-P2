@@ -20,7 +20,7 @@ const favoriteDessertsGroupA = {
   rick: 'brownies',
   andrew: 'cheese cake',
   jerry: 'rhubard pie',
-  'jean-luc': 'cheese cake',
+  jeanLuc: 'cheese cake',
   tiffany: 'waffles',
   melissa: 'profiteroles',
 };
@@ -31,7 +31,7 @@ const favouriteDessertsGroupB = {
   colin: 'gummy bears',
   damien: 'child tears',
   ellicia: 'panda express',
-  fertrude: 'gummy bears'.
+  fertrude: 'gummy bears',
   glinda: 'pie',
   hethel: 'not applicable',
   irsula: 'rum cake',
@@ -54,12 +54,37 @@ const favouriteDessertsGroupB = {
 // - Second, put them in order
 
 function sortDessertsByPopularity(dessertObject) {
-  // Write code
+  let dessertArray = Object.values(dessertObject)
+  let countObject = {}
+
+  dessertArray.forEach((dessert) =>{
+    countObject[dessert] = 0
+  })
+
+  dessertArray.forEach((dessert) =>{
+    countObject[dessert] = countObject[dessert] + 1
+  })
+  console.log(countObject)
+
+  let keysArray = Object.keys(countObject);
+
+  return keysArray.sort((a,b) =>{
+    let countA = countObject[a]
+    let countB = countObject[b]
+    
+    if (countA < countB){
+      return 1
+    } else {
+      return -1
+    }
+  })
 }
+
+// sortDessertsByPopularity(favoriteDessertsGroupA)
 
 console.log(
   'Popular desserts in Group B:',
-  sortDessertsByPopularity(favouriteDessertsGroupB)
+  sortDessertsByPopularity(favoriteDessertsGroupA)
 );
 
 
