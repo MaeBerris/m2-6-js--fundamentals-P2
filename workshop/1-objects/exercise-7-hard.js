@@ -64,15 +64,19 @@ function sortDessertsByPopularity(dessertObject) {
   dessertArray.forEach((dessert) =>{
     countObject[dessert] = countObject[dessert] + 1
   })
-  console.log(countObject)
+  console.log('this is the count object', countObject)
 
   let keysArray = Object.keys(countObject);
 
+
   return keysArray.sort((a,b) =>{
-    let countA = countObject[a]
+    console.log('this is a',a) //a is a dessert
+    console.log('this is b',b)
+    let countA = countObject[a] //this is the number of the a variable dessert
     let countB = countObject[b]
-    
-    if (countA < countB){
+    // console.log('this is countA', countA)
+    // console.log('this is countB', countB)
+    if (countA < countB){ //if the number of a desserts is inferior to b desserts, keep a and b in order, else switch them
       return 1
     } else {
       return -1
@@ -80,12 +84,32 @@ function sortDessertsByPopularity(dessertObject) {
   })
 }
 
+console.log(sortDessertsByPopularity(favouriteDessertsGroupB))
+
+//METHOD 2, INCOMPLETE
+// function sortDessertsByPopularity(dessertObject){
+//   let dessertCount = {}
+//   Object.entries(dessertObject).forEach((entry)=>{
+//     let personName = entry[0]
+//     let dessert = entry[0];
+
+//     if(dessertCount[dessert]=== undefined){
+//       dessertCount[dessert] = 0
+//     }
+//       dessertCount[dessert] += 1;
+//   })
+// }
+
+// Object.values(dessertObject).sort(a,b) => {
+
+// }
+
 // sortDessertsByPopularity(favoriteDessertsGroupA)
 
-console.log(
-  'Popular desserts in Group B:',
-  sortDessertsByPopularity(favoriteDessertsGroupA)
-);
+// console.log(
+//   'Popular desserts in Group B:',
+//   sortDessertsByPopularity(favoriteDessertsGroupA)
+// );
 
 
 /*
@@ -121,7 +145,26 @@ order, and that's 100% OK).
 */
 
 function groupPeopleByDessert(dessertObject) {
+  let dessertGroup = {}
 
+  let keys = Object.values(dessertObject)
+
+  keys.forEach(function (dessert){
+    dessertGroup[dessert] = []
+  })
+
+  console.log("test1",dessertGroup);
+  let entries = Object.entries(dessertObject)
+
+  entries.forEach((entrie) =>{
+    let name = entrie[0]
+    let dessert = entrie[1]
+
+    dessertGroup[dessert].push(name)
+    
+  })
+
+  return dessertGroup
 }
 
 console.log(
